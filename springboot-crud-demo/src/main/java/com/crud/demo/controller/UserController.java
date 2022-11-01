@@ -23,12 +23,14 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
+	// to add new User
 	@PostMapping("/addUser")
 	public ResponseEntity<?> createNewUser(@RequestBody User user){
      User creatUser = userService.saveUser(user);
      return new ResponseEntity<Object>(creatUser,HttpStatus.CREATED);	
 	}
 	
+	//to get the element by id
 	@GetMapping("/get/{id}")
 	public ResponseEntity<?> getUserById(@PathVariable("id") int id){
 		User getUser=userService.getUserById(id);
